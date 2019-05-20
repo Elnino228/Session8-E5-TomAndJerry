@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+let Rat=function (name,weight,speed) {
+    this.name=name;
+    this.weight=weight;
+    this.speed=speed;
+    this.live=true;
+    this.sounding=function () {
+        console.log('Chit chit');
+    }
+}
+let Cat =function (name,weight,speed) {
+    this.name=name;
+    this.weight=weight;
+    this.speed=speed;
+    this.numberRat=0;
+    this.sounding=function () {
+        console.log('Meo meo');
+    }
+    this.catching=function (rat) {
+        if (this.speed>rat.speed){
+            this.numberRat++;
+        }
+    }
+    this.eat=function (rat) {
+        if (rat.live){
+            this.weight+=rat.weight;
+        } else alert('Chet roi.Khong an dau');
+    }
+}
+let tom =new Cat('Tom',5,10);
+let jerry=new Rat('Jerry',0.2,2);
+tom.sounding();
+jerry.sounding();
+tom.catching(jerry);
+tom.eat(jerry);
+console.log(tom.weight);
+</script>
+</body>
+</html>
